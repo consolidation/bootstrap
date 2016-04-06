@@ -69,7 +69,7 @@ class BootstrapCurrator
 
     protected function apply(BootstrapAwareInterface $listener, BootInterface $bootstrap)
     {
-        $listener->setBootstrap($this->bootstrap);
+        $listener->setBootstrap($bootstrap);
     }
 
     protected function applyToListeners($listeners, BootInterface $bootstrap)

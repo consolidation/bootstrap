@@ -6,7 +6,7 @@ use Consolidation\TestUtils\TestBootstrapAwareObject;
 
 class BootstrapTests extends \PHPUnit_Framework_TestCase
 {
-    function testBootstrapManager()
+    public function testBootstrapManager()
     {
         $manager = new BootstrapManager();
         $testBootstrapAwareObject = new TestBootstrapAwareObject();
