@@ -60,8 +60,31 @@ Bootstrap-aware classes can ask the bootstrap object for a service. Services are
 Each class of service will be provided by its own project.
 
 ## Usage
-tbd
+```
+$manager = new BootstrapManager();
+$manager->add(new FrameworkBoot1());
+$manager->add(new FrameworkBoot2());
 
+$bootstrapObject = $manager->selectBootstrap('/path/to/framework/root');
+$bootstrapObject->boot(['database']); // TODO: improve service feature specification
+```
+## Dependency Injection
+If your Dependency Injection container supports inflection, that feature may be used to ensure that any bootstrap-aware object created via the container will have its setBootstrap method called once a bootstrap object has been selected.
+
+The example below shows configuration for league/container:
+```
+$container->share('bootstrapCurrator', 'Consolidation\Bootstrap\BootstrapCurrator');
+$container->share('bootstrapManager', 'Consolidation\Bootstrap\BootstrapManager')
+    ->withMethodCall('setBootstrapCurrator', ['bootstrapCurrator']);
+$container->inflector('Consolidation\Bootstrap\BootstrapAwareInterface')
+    ->invokeMethod('setBootstrapCurrator', ['bootstrapCurrator']);
+```
+If you are not using a container that supports inflection, or if you do not wish to instantiate all of your bootstrap-aware object instances via the container, then you may register your factory with the bootstrap manager, and it will ensure that the bootstrap object is injected as needed. Note that in order for this feature to work, the factory must provide a listener API, and notify the bootstrap manager when objects that might need to be set up are encountered.
+```
+$factory = new AnnotationCommandFactory();
+$manager = new BootstrapManager();
+$manager->registerFactory($factory);
+```
 ## Comparison to Existing Solutions
 
 Drush has an existing `Boot` interface that is very similar to what is needed here. However, this class is tightly coupled with Drush; therefore, the implementation here will be slightly different.

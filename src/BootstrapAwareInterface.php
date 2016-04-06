@@ -1,7 +1,8 @@
 <?php
 namespace Consolidation\Bootstrap;
 
-class BootstrapAwareInterface
+interface BootstrapAwareInterface
 {
-    public function setBootstrap($bootstrap);
+    public function setBootstrap(BootInterface $bootstrap);
+    public function setBootstrapCurrator(BootstrapCurrator $currator);
 }
