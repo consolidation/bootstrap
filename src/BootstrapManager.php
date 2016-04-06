@@ -51,6 +51,31 @@ class BootstrapManager implements LoggerAwareInterface
     }
 
     /**
+     * Register a factory with an object-creation listener, and
+     * the bootstrap manager will ensure that the bootstrap object
+     * will be set on any object that implements BootstrapAwareInterface.
+     * This is an alternative to using dependency injection container
+     * inflection (e.g. if the commandfile objects are not always
+     * created via the container).
+     *
+     * @param mixed $factory A factory object that creates or uses
+     *   bootstrap-aware objects.
+     * @param string $listenerMethod The method to call to register a
+     *   listener callback function.
+     * @example $bootstrapManager->registerFactory($annotationCommandFactory);
+     */
+    public function registerFactory($factory, $listenerMethod = 'addListener')
+    {
+        $factory->$listenerMethod(
+            function ($object) {
+                if ($object instanceof BootstrapAwareInterface) {
+                    $object->setBootstrapCurrator($this->getBootstrapCurrator());
+                }
+            }
+        );
+    }
+
+    /**
      * Look up the best bootstrap class for the given location
      * from the set of available candidates.
      *
