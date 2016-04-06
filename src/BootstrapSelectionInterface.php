@@ -19,7 +19,7 @@ interface BootstrapSelectionInterface
      *
      * @return TRUE if $path is a valid root directory
      */
-    function isValid($path);
+    public function isValid($path);
 
     /**
      * Return the Bootstrap object associated with this selection object.
@@ -28,5 +28,5 @@ interface BootstrapSelectionInterface
      *
      * @return Consolidation\Bootstrap\BootInterface
      */
-    function getBootstrap($path);
+    public function getBootstrap($path);
 }

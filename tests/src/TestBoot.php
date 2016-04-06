@@ -20,7 +20,7 @@ class TestBoot implements BootInterface, BootstrapSelectionInterface
     /**
      * @inheritdoc
      */
-    function isValid($path)
+    public function isValid($path)
     {
         return $this->path == $path;
     }
@@ -28,7 +28,7 @@ class TestBoot implements BootInterface, BootstrapSelectionInterface
     /**
      * @inheritdoc
      */
-    function getBootstrap($path, $siteSelector = null)
+    public function getBootstrap($path, $siteSelector = null)
     {
         if (!$this->isValid($path)) {
             throw new \RuntimeException('Invalid path passed to getBootstrap().');
@@ -39,12 +39,12 @@ class TestBoot implements BootInterface, BootstrapSelectionInterface
         return $this;
     }
 
-    function getPath()
+    public function getPath()
     {
         return $this->path;
     }
 
-    function getSiteSelector()
+    public function getSiteSelector()
     {
         return $this->siteSelection;
     }
@@ -52,7 +52,7 @@ class TestBoot implements BootInterface, BootstrapSelectionInterface
     /**
      * @inheritdoc
      */
-    function getFrameworkVersion()
+    public function getFrameworkVersion()
     {
         return $this->version;
     }
@@ -60,7 +60,7 @@ class TestBoot implements BootInterface, BootstrapSelectionInterface
     /**
      * @inheritdoc
      */
-    function getServiceFeatures()
+    public function getServiceFeatures()
     {
         return $this->services();
     }
