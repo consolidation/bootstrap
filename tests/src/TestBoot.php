@@ -9,6 +9,7 @@ class TestBoot implements BootInterface, BootstrapSelectionInterface
     protected $path;
     protected $siteSelector;
     protected $version;
+    protected $services;
 
     public function __construct($path, $version, $services)
     {
@@ -33,7 +34,7 @@ class TestBoot implements BootInterface, BootstrapSelectionInterface
         if (!$this->isValid($path)) {
             throw new \RuntimeException('Invalid path passed to getBootstrap().');
         }
-        $this->siteSelection = $siteSelector;
+        $this->siteSelector = $siteSelector;
         // Normally we would instantiate a new BootInterface and pass
         // the $path to its constructor.
         return $this;
@@ -46,7 +47,7 @@ class TestBoot implements BootInterface, BootstrapSelectionInterface
 
     public function getSiteSelector()
     {
-        return $this->siteSelection;
+        return $this->siteSelector;
     }
 
     /**
@@ -62,7 +63,7 @@ class TestBoot implements BootInterface, BootstrapSelectionInterface
      */
     public function getServiceFeatures()
     {
-        return $this->services();
+        return $this->services;
     }
 
     /**

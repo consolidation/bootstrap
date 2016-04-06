@@ -32,12 +32,12 @@ namespace Consolidation\Bootstrap;
 class BootstrapCurrator
 {
     /**
-     * @var Consolidation\Bootstrap\BootInterface
+     * @var BootInterface
      */
     protected $bootstrap;
 
     /**
-     * @var Consolidation\Bootstrap\BootstrapAwareInterface
+     * @var BootstrapAwareInterface[]
      */
     protected $listeners = [];
 

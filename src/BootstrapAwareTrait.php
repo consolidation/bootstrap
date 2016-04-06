@@ -4,7 +4,7 @@ namespace Consolidation\Bootstrap;
 trait BootstrapAwareTrait
 {
     /**
-     * @var Consolidation\Bootstrap\BootInterface
+     * @var BootInterface
      */
     protected $bootstrap;
 

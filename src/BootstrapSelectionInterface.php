@@ -17,7 +17,7 @@ interface BootstrapSelectionInterface
      *
      * @param $path to a directory to test
      *
-     * @return TRUE if $path is a valid root directory
+     * @return boolean
      */
     public function isValid($path);
 
@@ -26,7 +26,7 @@ interface BootstrapSelectionInterface
      *
      * @param $path to the root directory of a framework supported by this object.
      *
-     * @return Consolidation\Bootstrap\BootInterface
+     * @return BootInterface
      */
     public function getBootstrap($path);
 }
