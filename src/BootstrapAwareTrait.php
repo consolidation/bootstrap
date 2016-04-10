@@ -13,8 +13,8 @@ trait BootstrapAwareTrait
         $this->bootstrap = $bootstrap;
     }
 
-    public function setBootstrapCurrator(BootstrapCurrator $currator)
+    public function setBootstrapCurator(BootstrapCurator $curator)
     {
-        $currator->register($this);
+        $curator->register($this);
     }
 }

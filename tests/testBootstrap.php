@@ -10,7 +10,7 @@ class BootstrapTests extends \PHPUnit_Framework_TestCase
     {
         $manager = new BootstrapManager();
         $testBootstrapAwareObject = new TestBootstrapAwareObject();
-        $testBootstrapAwareObject->setBootstrapCurrator($manager->getBootstrapCurrator());
+        $testBootstrapAwareObject->setBootstrapCurator($manager->getBootstrapCurator());
 
         $testBoot1 = new TestBoot('/path/to/boot1', '1.2.3', ['code', 'database', 'configuration']);
         $testBoot2 = new TestBoot('/path/to/boot2', '3.4.5', ['code', 'database', 'configuration']);

@@ -29,7 +29,7 @@ namespace Consolidation\Bootstrap;
  * probably be very hard to debug. With the current design, the
  * unset boot object is, at least, easy to detect.
  */
-class BootstrapCurrator
+class BootstrapCurator
 {
     /**
      * @var BootInterface

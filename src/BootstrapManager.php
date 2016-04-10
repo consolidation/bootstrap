@@ -15,9 +15,9 @@ class BootstrapManager implements LoggerAwareInterface
     protected $bootstrapCandidates = [];
 
     /**
-     * @var BootstrapCurrator
+     * @var BootstrapCurator
      */
-    protected $currator;
+    protected $curator;
 
     /**
      * Constructor.
@@ -26,17 +26,17 @@ class BootstrapManager implements LoggerAwareInterface
     {
     }
 
-    public function setBootstrapCurrator(BootstrapCurrator $currator)
+    public function setBootstrapCurator(BootstrapCurator $curator)
     {
-        $this->currator = $currator;
+        $this->curator = $curator;
     }
 
-    public function getBootstrapCurrator()
+    public function getBootstrapCurator()
     {
-        if (!isset($this->currator)) {
-            $this->currator = new BootstrapCurrator();
+        if (!isset($this->curator)) {
+            $this->curator = new BootstrapCurator();
         }
-        return $this->currator;
+        return $this->curator;
     }
 
     /**
@@ -69,7 +69,7 @@ class BootstrapManager implements LoggerAwareInterface
         $factory->$listenerMethod(
             function ($object) {
                 if ($object instanceof BootstrapAwareInterface) {
-                    $object->setBootstrapCurrator($this->getBootstrapCurrator());
+                    $object->setBootstrapCurator($this->getBootstrapCurator());
                 }
             }
         );
@@ -85,7 +85,7 @@ class BootstrapManager implements LoggerAwareInterface
      */
     public function selectBootstrap($path)
     {
-        if ($this->getBootstrapCurrator()->hasBootstrap()) {
+        if ($this->getBootstrapCurator()->hasBootstrap()) {
             throw new \RuntimeException('Bootstrap object already selected.');
         }
         foreach ($this->bootstrapCandidates as $candidate) {
@@ -117,7 +117,7 @@ class BootstrapManager implements LoggerAwareInterface
      */
     protected function setBootstrap(BootInterface $bootstrap)
     {
-        $this->getBootstrapCurrator()->setBootstrap($bootstrap);
+        $this->getBootstrapCurator()->setBootstrap($bootstrap);
         return $bootstrap;
     }
 }
