@@ -2,7 +2,10 @@
 
 Locate and bootstrap components needed to run code from a framework.
 
-[![Travis CI](https://travis-ci.org/consolidation/bootstrap.svg?branch=master)](https://travis-ci.org/consolidation/bootstrap) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/consolidation/bootstrap/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/consolidation/bootstrap/?branch=master) [![License](https://poser.pugx.org/consolidation/bootstrap/license)](https://packagist.org/packages/consolidation/bootstrap)
+[![Travis CI](https://travis-ci.org/consolidation/bootstrap.svg?branch=master)](https://travis-ci.org/consolidation/bootstrap) 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/consolidation/bootstrap/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/consolidation/bootstrap/?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/consolidation/bootstrap/badge.svg?branch=master)](https://coveralls.io/github/consolidation/bootstrap?branch=master)
+[![License](https://poser.pugx.org/consolidation/bootstrap/license)](https://packagist.org/packages/consolidation/bootstrap)
 
 This component is designed to be called from a commandline application, such as [Drush](https://github.com/drush-ops/drush) or [Drupal Console](https://github.com/hechoendrupal/DrupalConsole). It is the responsibility of the application to provide basic information about the operating environment, such as:
 
