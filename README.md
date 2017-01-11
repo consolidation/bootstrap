@@ -76,11 +76,11 @@ If your Dependency Injection container supports inflection, that feature may be 
 
 The example below shows configuration for league/container:
 ```
-$container->share('bootstrapCurrator', 'Consolidation\Bootstrap\BootstrapCurrator');
+$container->share('bootstrapCurator', 'Consolidation\Bootstrap\BootstrapCurator');
 $container->share('bootstrapManager', 'Consolidation\Bootstrap\BootstrapManager')
-    ->withMethodCall('setBootstrapCurrator', ['bootstrapCurrator']);
+    ->withMethodCall('setBootstrapCurator', ['bootstrapCurator']);
 $container->inflector('Consolidation\Bootstrap\BootstrapAwareInterface')
-    ->invokeMethod('setBootstrapCurrator', ['bootstrapCurrator']);
+    ->invokeMethod('setBootstrapCurator', ['bootstrapCurator']);
 ```
 If you are not using a container that supports inflection, or if you do not wish to instantiate all of your bootstrap-aware object instances via the container, then you may register your factory with the bootstrap manager, and it will ensure that the bootstrap object is injected as needed. Note that in order for this feature to work, the factory must provide a listener API, and notify the bootstrap manager when objects that might need to be set up are encountered.
 ```
